@@ -13,7 +13,7 @@ var orm = {
 	},
 	insertOne: function(table, value, cb) {
 		var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (?,false)";
-		connection.query(queryString, [table, burgerName], function(err, result) {
+		connection.query(queryString, [table, value], function(err, result) {
 			console.log(result);
 			if (err) {
 				throw err;
@@ -21,9 +21,9 @@ var orm = {
 			cb(result);
 		});
 	},
-	updateOne: function(table, value, boolean, id, cb) {
-		var queryString = "UPDATE ?? SET burger_name = ?, devoured = ? WHERE id = ?";
-		connection.query(queryString, [table, value, boolean, id], function(err, result) {
+	updateOne: function(table, id, cb) {
+		var queryString = "UPDATE ?? SET devoured = false WHERE id = ?";
+		connection.query(queryString, [table, id], function(err, result) {
 			console.log(result);
 			if (err) {
 				throw err;

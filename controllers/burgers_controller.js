@@ -13,13 +13,13 @@ router.get("/burgers", function(req, res) {
 });
 
 router.post("/burgers/create", function(req, res) {
-	burger.insertOne(["burger_name", "devoured"], [req.body.name, false], function(data) {
+	burger.insertOne(req.body.name, function(data) {
 		res.redirect("/burgers");
 	});
 });
 
 router.put("/burgers/update/:id", function(req, res) {
-	burger.updateOne({"devoured": false}, req.params.id, function(data) {
+	burger.updateOne("burgers", req.params.id, function(data) {
 		res.redirect("/burgers");
 	});
 });
