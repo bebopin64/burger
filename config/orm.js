@@ -22,7 +22,7 @@ var orm = {
 		});
 	},
 	updateOne: function(table, id, cb) {
-		var queryString = "UPDATE ?? SET devoured = false WHERE id = ?";
+		var queryString = "UPDATE ?? SET devoured = true WHERE id = ?";
 		connection.query(queryString, [table, id], function(err, result) {
 			console.log(result);
 			if (err) {

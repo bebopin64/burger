@@ -19,7 +19,7 @@ router.post("/burgers/create", function(req, res) {
 });
 
 router.put("/burgers/update/:id", function(req, res) {
-	burger.updateOne("burgers", req.params.id, function(data) {
+	burger.updateOne(req.params.id, function(data) {
 		res.redirect("/burgers");
 	});
 });
